@@ -1,0 +1,16 @@
+{% extends "webhtml/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<p>Are you sure, you want to delete the {{item}}</p>
+<form action="{% url 'delete' item.id %}" method="POST">
+	
+	{% csrf_token %}
+	
+	<input type="submit" name="Submit">
+	<a href="{% url 'home' %}">Cancel</a>
+	
+</form>
+
+{% endblock %}
